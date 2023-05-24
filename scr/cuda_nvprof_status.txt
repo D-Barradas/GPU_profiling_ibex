@@ -1,0 +1,62 @@
+Loading module for CUDA 10.0.130
+CUDA 10.0.130 is now loaded
+module cuda/10.0.130 has nvprof
+Unloading module for Tensorflow CUDA 10.0.130
+CUDA 10.0.130 is now unloaded
+Loading module for CUDA 10.1.105
+CUDA 10.1.105 is now loaded
+module cuda/10.1.105 has nvprof
+Unloading module for Tensorflow CUDA 10.1.105
+CUDA 10.1.105 is now unloaded
+Loading module for CUDA 10.1.243
+CUDA 10.1.243 is now loaded
+module cuda/10.1.243 has nvprof
+Unloading module for Tensorflow CUDA 10.1.243
+CUDA 10.1.243 is now unloaded
+Loading module for CUDA 10.2.89
+CUDA 10.2.89 is now loaded
+module cuda/10.2.89 has nvprof
+Unloading module CUDA 10.2.89
+CUDA 10.2.89 is now unloaded
+Loading module for CUDA 11.0.1
+CUDA 11.0.1 is now loaded
+module cuda/11.0.1 has nvprof
+Unloading module CUDA 11.0.1
+CUDA 11.0.1 is now unloaded
+Loading module for CUDA 11.1.1
+CUDA 11.1.1 is now loaded
+module cuda/11.1.1 has nvprof
+Unloading module CUDA 11.1.1
+CUDA 11.1.1 is now unloaded
+cuda(3):ERROR:105: Unable to locate a modulefile for 'cuda/11.2.2(default)'
+module cuda/11.2.2(default) does not have nvprof
+Loading module for CUDA 11.4.4
+CUDA 11.4.4 is now loaded
+module cuda/11.4.4 has nvprof
+Unloading module CUDA 11.4.4
+CUDA 11.4.4 is now unloaded
+Loading module for CUDA 11.5.2
+CUDA 11.5.2 is now loaded
+module cuda/11.5.2 has nvprof
+Unloading module CUDA 11.5.2
+CUDA 11.5.2 is now unloaded
+Loading module for CUDA 11.7.0
+CUDA 11.7.0 is now loaded
+module cuda/11.7.0 has nvprof
+Unloading module CUDA 11.7.0
+CUDA 11.7.0 is now unloaded
+Loading module for CUDA 11.8.0
+CUDA 11.8.0 is now loaded
+module cuda/11.8.0 has nvprof
+Unloading module CUDA 11.8.0
+CUDA 11.8.0 is now unloaded
+Loading module for CUDA 9.0.176
+CUDA 9.0.176 is now loaded
+module cuda/9.0.176 has nvprof
+Unloading module for Tensorflow CUDA 9.0.176
+CUDA 9.0.176 is now unloaded
+Loading module for CUDA 9.2.148.1
+CUDA 9.2.148.1 is now loaded
+module cuda/9.2.148.1 has nvprof
+Unloading module for Tensorflow CUDA 9.2.148.1
+CUDA 9.2.148.1 is now unloaded

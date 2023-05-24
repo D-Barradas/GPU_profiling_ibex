@@ -1,0 +1,5 @@
+==52451== NVPROF is profiling process 52451, command: ./matrix_multiplication.out 100 100
+==52451== Generated result file: /ibex/user/barradd/ksl_postmaint_tests/nvprof_cuda/matrix_multiplication.nvvp
+time for single matrix vector multiplication 1.384930E-03 s
+The L2 norm of the resulting vector is: 1.000000E+02
+Performance: 0.014441 Gflop/s

@@ -1,0 +1,5 @@
+mpirun -np 1 nvprof --metrics flop_count_dp ./DNS_tc_1024 -i input_detonation.txt -m h2_burke.xml
+
+nvprof -o file.nvvp ./something
+
+nvprof --metrics flop_count_dp -o matrix_multiplication.nvvp ./matrix_multiplication.out 100 100
