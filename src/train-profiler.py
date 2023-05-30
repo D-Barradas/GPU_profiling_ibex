@@ -1,6 +1,6 @@
 import torch
 import torchvision
-# import torch.profiler
+import torch.profiler
 
 
 
@@ -60,38 +60,44 @@ model.to(device)
 
 
   # Profile the GPU usage
-for epoch in range(2):
-    for i, (images, labels) in enumerate(train_loader):
-        images, labels = images.to(device), labels.to(device)
-
-        # Forward pass
-        outputs = model(images)
-
-        # Calculate the loss
-        loss = criterion(outputs, labels)
-
-        # Backpropagate the loss
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-        # Print the loss
-        if i % 100 == 0:
-            print(f'Epoch {epoch + 1}, batch {i + 1}/{len(train_loader)}, loss: {loss.item()}')
-        # Evaluate the model on the validation set
-    correct = 0
-    total = 0
-    with torch.no_grad():
-        for images, labels in val_loader:
+with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU, torch.profiler.ProfilerActivity.CUDA], record_shapes=True, profile_memory=True) as prof:
+    for epoch in range(2):
+        for i, (images, labels) in enumerate(train_loader):
             images, labels = images.to(device), labels.to(device)
-            
-            outputs = model(images)
-            _, predicted = outputs.max(1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
 
-    val_accuracy = correct / total
-    print(f'Val accuracy: {val_accuracy}')
+            # Forward pass
+            outputs = model(images)
+
+            # Calculate the loss
+            loss = criterion(outputs, labels)
+
+            # Backpropagate the loss
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            # Print the loss
+            if i % 100 == 0:
+                print(f'Epoch {epoch + 1}, batch {i + 1}/{len(train_loader)}, loss: {loss.item()}')
+            # Evaluate the model on the validation set
+        correct = 0
+        total = 0
+        with torch.no_grad():
+            for images, labels in val_loader:
+                images, labels = images.to(device), labels.to(device)
+
+                outputs = model(images)
+                _, predicted = outputs.max(1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+
+        val_accuracy = correct / total
+        print(f'Val accuracy: {val_accuracy}')
+
+print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10)) # print the top 10 CUDA kernels by total time
+
+# Save the profiling results
+prof.export_chrome_trace("tinyimagenet.json")
 
 
 # Test the model on the test set

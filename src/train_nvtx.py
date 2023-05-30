@@ -47,7 +47,9 @@ test_loader = torch.utils.data.DataLoader(
 )
 
 # Create a model
-model = torchvision.models.resnet18(weights=torchvision.models.ResNet18_Weights.IMAGENET1K_V1)
+model = torchvision.models.resnet50(weights=None)
+# model = torchvision.models.resnet50(weights=torchvision.models.ResNet50_Weights.DEFAULT)
+# model = torchvision.models.resnet18(weights=torchvision.models.ResNet18_Weights.IMAGENET1K_V1)
 torchvision.models
 
 # Define the loss function and optimizer
@@ -61,10 +63,7 @@ for epoch in range(5):
     for i, (images, labels) in enumerate(train_loader):
         with nvtx.annotate("Batch" + str(i), color="green"):
 
-            # nvtx.push("Batch" + str(i)) # Batch i
-            # nvtx.annotate(, color="green")
-
-                
+            #load images and labels to device
             with nvtx.annotate("Copy to device", color="red"):
                 images, labels = images.to(device), labels.to(device)
 
